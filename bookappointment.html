@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(' ');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            background-color: rgba(130, 176, 198, 0.699);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            margin: 100px auto;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .container form {
+            margin-bottom: 20px;
+        }
+
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .container input[type="text"],
+        .container input[type="email"],
+        .container input[type="tel"],
+        .container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .container button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>BOOK APPOINTMENT</h2>
+        <form id="appointmentForm" onsubmit="return validateForm()">
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" name="customerName" required><br>
+            <label for="parlourName">Parlour Name:</label>
+            <input type="text" id="parlourName" name="parlourName" required><br>
+            <label for="parlourID">Parlour ID:</label>
+            <input type="number" id="parlourID" name="parlourID" required><br>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{10}" placeholder="Enter 10 digit phone number"><br>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required ><br>
+            <label for="numberOfPersons">No. of Persons:</label>
+            <input type="number" id="numberOfPersons" name="numberOfPersons" required><br>
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+            <input type="submit" value="Confirm Booking">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var customerName = document.getElementById("customerName").value;
+            var parlourName = document.getElementById("parlourName").value;
+            var parlourID = document.getElementById("parlourID").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+            var numberOfPersons = document.getElementById("numberOfPersons").value;
+
+            if (customerName === "" || parlourName === "" || parlourID === "" || phoneNumber === "" || date === "" || time === "" || numberOfPersons === "") {
+                document.getElementById("errorMessage").innerText = "Please fill in all required fields.";
+                document.getElementById("errorMessage").style.display = "block";
+                return false;
+            } else {
+                // Redirect to payment.html after confirming booking
+                window.location.href = "payment.html";
+                return false; // Prevent form submission (not needed since we're redirecting)
+            }
+        }
+    </script>
+</body>
+</html>
