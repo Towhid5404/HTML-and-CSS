@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book APPOINTMENT</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(' ');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            background-color: rgba(122, 181, 120, 0.699);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            margin: 100px auto;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .container form {
+            margin-bottom: 20px;
+        }
+
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .container input[type="text"],
+        .container input[type="email"],
+        .container input[type="tel"],
+        .container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .container button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>STAFF</h2>
+        <form>
+            <label for="booking">Today bookings:</label>
+            <input type="number" id="number" name="number" required><br>
+
+            <label for="booking">last week bookings:</label>
+            <input type="number" id="number" name="number" required><br>
+
+            <label for="booking">last month bookings:</label>
+            <input type="number" id="number" name="number" required><br>
+
+            <label for="rating">Average customer rating :</label>
+            <input type="number" id="rating" name="rating" required min="1" max="5"><br>
+
+            <label for="number">no.of STAFF:</label>
+            <input type="number" id="persons" name="persons" required><br>
+        </form>
+        <div class="functions">
+            <button onclick="location.href='BEAUTYPARLOUR.html'">SUBMIT</button>
+        </div>
+    </div>
+</body>
+</html>
