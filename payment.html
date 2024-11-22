@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(' ');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(223, 153, 153, 0.903);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 400px;
+            max-width: 90%;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+        }
+
+        .container form {
+            margin-bottom: 20px;
+        }
+
+        .container label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .container input[type="text"],
+        .container input[type="number"],
+        .container select {
+            width: 80%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #0a0101;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .container button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+        .container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>PAYMENT</h2>
+        <form id="paymentForm" onsubmit="return validateForm()">
+            <label for="name">customer Name:</label>
+            <input type="text" id="name" name="name" required><br>
+        
+            <label for="date">Date:</label>
+            <input type="text" id="date" name="date" required><br>
+
+            <label for="amount">Bill amount:</label>
+            <input type="text" id="amount" name="amount" required><br>
+
+            <label for="rating">Rating(out of 5):</label>
+            <input type="number" id="rating" name="rating" required min="1" max="5"><br>
+
+            <label for="paymentMethod">Select Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod">
+                <option value="upi">UPI</option>
+                <option value="netBanking">Net Banking</option>
+                <option value="creditCard">Credit Card</option>
+                <option value="debitCard">Debit Card</option>
+            </select><br>
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var customerName = document.getElementById("name").value;
+            var date = document.getElementById("date").value;
+            var amount = document.getElementById("amount").value;
+            var rating = document.getElementById("rating").value;
+            var paymentMethod = document.getElementById("paymentMethod").value;
+
+            if (customerName === "" || date === "" || amount === "" || rating === "" || paymentMethod === "") {
+                document.getElementById("errorMessage").innerText = "Please fill in all required fields.";
+                document.getElementById("errorMessage").style.display = "block";
+                return false;
+            } else {
+                window.location.href = "bookconfirm.html";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
